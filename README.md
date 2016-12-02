@@ -4,7 +4,7 @@ yii2-robokassa
 ## Install via Composer
 
 ~~~
-composer require yii-cms/yii2-robokassa
+composer require gidbi/yii2-robokassa
 ~~~
 
 ## Configuration
@@ -65,6 +65,7 @@ class PaymentController extends Controller
 
 	/**
 	 * Callback.
+	 *
      * @param \robokassa\Merchant $merchant merchant.
      * @param integer $nInvId invoice ID.
      * @param float $nOutSum sum.
@@ -97,7 +98,7 @@ class PaymentController extends Controller
      * @throws \yii\web\BadRequestHttpException
      */
     protected function loadModel($id) {
-        $model = Invoice::find($id);
+        $model = Invoice::findOne($id);
         if ($model === null) {
             throw new BadRequestHttpException;
         }
